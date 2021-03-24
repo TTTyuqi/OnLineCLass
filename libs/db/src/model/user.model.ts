@@ -3,15 +3,19 @@
  */
 
 import { ApiProperty } from "@nestjs/swagger";
-import { Prop } from "@typegoose/typegoose";
+import { ModelOptions, Prop } from '@typegoose/typegoose';
 
+@ModelOptions({
+  schemaOptions:{
+    timestamps:true
+  }
+})
  export class UserModel{
-
     @ApiProperty()
-    @Prop()
+    @Prop({required:true})
     userName:string
 
     @ApiProperty()
-    @Prop()
+    @Prop({required:true})
     userPassWorld:string
  }
